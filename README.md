@@ -4,6 +4,10 @@ This repo is the official implementation for **PoseFormerV2: Exploring Frequency
 
 ## Visualizations
 
+![image](https://github.com/QitaoZhao/PoseFormerV2/blob/main/images/visualization.jpg)
+
+![image](https://github.com/QitaoZhao/PoseFormerV2/blob/main/images/noise_comparison.jpg)
+
 ## Environment
 
 The code is developed and tested under the following environment
