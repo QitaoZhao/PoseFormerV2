@@ -10,7 +10,7 @@ PoseFormerV2 is built upon [PoseFormer](https://github.com/zczcwh/PoseFormer). I
 
 ![PoseFormerV2](./images/framework.jpg)
 
-<img src="./images/improvements.jpg" alt="PoseFormerV2" style="zoom:12%;" />
+<img src="./images/improvements.jpg" alt="PoseFormerV2" style="zoom:7%;" />
 
 ## Visualizations
 
