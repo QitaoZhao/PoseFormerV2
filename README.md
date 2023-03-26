@@ -10,8 +10,6 @@ PoseFormerV2 is built upon [PoseFormer](https://github.com/zczcwh/PoseFormer). I
 
 ![PoseFormerV2](./images/framework.jpg)
 
-<img src="./images/improvements.jpg" alt="PoseFormerV2" style="zoom:7%;" />
-
 ## Visualizations
 
 ![PoseFormerV2](./images/visualization.jpg)
@@ -61,14 +59,25 @@ You can train PoseFormerV2 on a single GPU with the following command:
 python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-kept 3 -c checkpoint/NAMED_PATH
 ```
 
-This example shows how to train PoseFormerV2 with 3 central frames and 3 DCT coefficients from a 27-frame sequence.
+This example shows how to train PoseFormerV2 with 3 central frames and 3 DCT coefficients from a 27-frame sequence. You can set *frame-kept* and *coeff-kept* to arbitrary values (of course <= frame number) as you like :)
 
 ### Evaluation
+
+We provide pre-trained models with different inputs:
+
+| Model       | Sequence Leng. |  f   |  n   | #Depth | Hidden Dim. | #MFLOPs | MPJPE (mm) |                           Download                           |
+| :---------- | :------------: | :--: | :--: | :----: | :---------: | :-----: | :--------: | :----------------------------------------------------------: |
+| PoseFormrV2 |       27       |  1   |  3   |   4    |     32      |  77.2   |    48.7    | [model](https://drive.google.com/file/d/14J0GYIzk_rGKSMxAPI2ydzX76QB70-g3/view?usp=share_link) |
+| /           |       27       |  3   |  3   |   4    |     32      |  117.3  |    47.9    | [model](https://drive.google.com/file/d/13oJz5-aBVvvPVFvTU_PrLG_m6kdbQkYs/view?usp=share_link) |
+| /           |       81       |  1   |  3   |   4    |     32      |  77.2   |    47.6    | [model](https://drive.google.com/file/d/14WgFFBsP0DtTq61XZWI9X2TzvFLCWEnd/view?usp=share_link) |
+| /           |       81       |  3   |  3   |   4    |     32      |  117.3  |    47.1    | [model](https://drive.google.com/file/d/13rXCkYnVnkbT-cz4XCo0QkUnUEYiSeoi/view?usp=share_link) |
+| /           |       81       |  9   |  9   |   4    |     32      |  351.7  |    46.0    | [model](https://drive.google.com/file/d/13wla4b5RgJGKX5zVehv4qKhCrQEFhfzG/view?usp=share_link) |
+| /           |      243       |  27  |  27  |   4    |     32      | 1054.8  |    45.2    | [model](https://drive.google.com/file/d/14SpqPyq9yiblCzTH5CorymKCUsXapmkg/view?usp=share_link) |
 
 You can evaluate PoseFormerV2 with prepared checkpoints as:
 
 ```bash
-python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-kept 3 -c checkpoint/NAMED_PATH --evaluate best_epoch.bin
+python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-kept 3 -c checkpoint/NAMED_PATH --evaluate NAME_ckpt.bin
 ```
 
 ## Acknowledgment
