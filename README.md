@@ -24,6 +24,8 @@ PoseFormerV2 is built upon [PoseFormer](https://github.com/zczcwh/PoseFormer). I
 
 ![PoseFormerV2](./images/noise_comparison.jpg)
 
+*Credit to [MHFormer](https://github.com/Vegetebird/MHFormer). You can refer to their repo to prepare your demo.
+
 ## Cite PoseFormerV2
 
 If you find PoseFormerV2 useful in your research, please consider citing:
