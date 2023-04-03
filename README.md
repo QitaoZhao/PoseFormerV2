@@ -39,7 +39,7 @@ If you find PoseFormerV2 useful in your research, please consider citing:
 
 ## Environment
 
-The code is developed and tested under the following environment
+The code is developed and tested under the following environment.
 
 - Python 3.8
 - PyTorch 1.11.0
@@ -90,5 +90,5 @@ python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-
 
 ## Acknowledgment
 
-Our codes are mainly based on [PoseFormer](https://github.com/zczcwh/PoseFormer). Many thanks to the authors!
+Our codes are mainly based on [PoseFormer](https://github.com/zczcwh/PoseFormer). We follow [MHFormer](https://github.com/Vegetebird/MHFormer) to prepare our in-the-wild video demos and visualizations. Many thanks to the authors!
 
