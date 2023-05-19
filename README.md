@@ -31,7 +31,7 @@ PoseFormerV2 is built upon [PoseFormer](https://github.com/zczcwh/PoseFormer). I
 If you find PoseFormerV2 useful in your research, please consider citing:
 
 ```bibtex
-@inproceedings{
+@inproceedings{zhao2023poseformerv2,
 	title={PoseFormerV2: Exploring Frequency Domain for Efficient and Robust 3D Human Pose Estimation},
 	author={Zhao, Qitao and Zheng, Ce and Liu, Mengyuan and Wang, Pichao, and Chen, Chen},
 	booktitle={Conference on Computer Vision and Pattern Recognition 2023},
