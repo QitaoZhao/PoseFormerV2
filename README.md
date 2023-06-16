@@ -2,15 +2,20 @@
 
 This repo is the official implementation for **PoseFormerV2: Exploring Frequency Domain for Efficient and Robust 3D Human Pose Estimation**. The paper has been accepted to [CVPR 2023](https://cvpr2023.thecvf.com/).
 
-[arXiv](https://arxiv.org/pdf/2303.17472.pdf) / [project page](https://qitaozhao.github.io/PoseFormerV2) / [video](https://www.youtube.com/watch?v=2xVNrGpGldM&t=5s)
+[arXiv](https://arxiv.org/pdf/2303.17472.pdf) / [project page](https://qitaozhao.github.io/PoseFormerV2) / [video](https://www.youtube.com/watch?v=2xVNrGpGldM)
+
+| ![dance_1](images/demo_1.gif) | ![dance_2](images/demo_2.gif) |
+| ----------------------------- | ----------------------------- |
 
 ### News
 
-[2023.03.31] Our paper on [arXiv](https://arxiv.org/pdf/2303.17472.pdf) is ready!
+[2023.06.16] Codes for in-the-wild video demos are released!
+
+[2023.05.31] We have a narrated video introduction. Please check [here](https://www.youtube.com/watch?v=2xVNrGpGldM).
 
 [2023.03.28] We build a [project page](https://qitaozhao.github.io/PoseFormerV2) where we place more descriptions and video demos.
 
-[2023.05.31] We have a narrated video introduction. Please check [here](https://www.youtube.com/watch?v=2xVNrGpGldM&t=5s).
+[2023.03.31] Our paper on [arXiv](https://arxiv.org/pdf/2303.17472.pdf) is ready!
 
 ## Introduction
 
@@ -26,18 +31,18 @@ PoseFormerV2 is built upon [PoseFormer](https://github.com/zczcwh/PoseFormer). I
 
 ![PoseFormerV2](./images/noise_comparison.jpg)
 
-*Credit to [MHFormer](https://github.com/Vegetebird/MHFormer). You can refer to their repo to prepare your demo.
-
 ## Cite PoseFormerV2
 
 If you find PoseFormerV2 useful in your research, please consider citing:
 
 ```bibtex
-@inproceedings{zhao2023poseformerv2,
-	title={PoseFormerV2: Exploring Frequency Domain for Efficient and Robust 3D Human Pose Estimation},
-	author={Zhao, Qitao and Zheng, Ce and Liu, Mengyuan and Wang, Pichao, and Chen, Chen},
-	booktitle={Conference on Computer Vision and Pattern Recognition 2023},
-	year={2023},
+@InProceedings{Zhao_2023_CVPR,
+    author    = {Zhao, Qitao and Zheng, Ce and Liu, Mengyuan and Wang, Pichao and Chen, Chen},
+    title     = {PoseFormerV2: Exploring Frequency Domain for Efficient and Robust 3D Human Pose Estimation},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2023},
+    pages     = {8877-8886}
 }
 ```
 
@@ -48,6 +53,8 @@ The code is developed and tested under the following environment.
 - Python 3.8
 - PyTorch 1.11.0
 - CUDA 11.3
+
+```pip install -r requirements.txt```
 
 ## Usage
 
@@ -90,6 +97,23 @@ You can evaluate PoseFormerV2 with prepared checkpoints as:
 
 ```bash
 python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-kept 3 -c checkpoint/NAMED_PATH --evaluate NAME_ckpt.bin
+```
+
+### Video Demo
+
+| ![skating](images/demo_3.gif) |
+| :---------------------------: |
+
+Our codes for in-the-wild video demos are adopted from [MHFormer](https://github.com/Vegetebird/MHFormer).
+
+Firtst, you need to download the pretrained weights for YOLOv3 ([here](https://drive.google.com/file/d/1YgA9riqm0xG2j72qhONi5oyiAxc98Y1N/view?usp=sharing)), HRNet ([here](https://drive.google.com/drive/folders/https://drive.google.com/file/d/1YLShFgDJt2Cs9goDw9BmR-UzFVgX3lc8/view?usp=sharing)) and put them in the './demo/lib/checkpoint' directory. Then, put your in-the-wild videos in the './demo/video' directory. 
+
+Note: make sure you have also downloaded the weights for PoseFormerV2! (the default path in the code is './checkpoint')
+
+Run the command below:
+
+```bash
+python demo/vis.py --video sample_video.mp4
 ```
 
 ## Acknowledgment
