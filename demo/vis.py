@@ -230,6 +230,8 @@ def get_pose3D(video_path, output_dir):
         output_dir_3D = output_dir +'pose3D/'
         os.makedirs(output_dir_3D, exist_ok=True)
         plt.savefig(output_dir_3D + str(('%04d'% i)) + '_3D.png', dpi=200, format='png', bbox_inches = 'tight')
+        plt.clf()
+        plt.close(ｆig)
         
     print('Generating 3D pose successful!')
 
@@ -272,6 +274,8 @@ def get_pose3D(video_path, output_dir):
         plt.margins(0, 0)
         plt.savefig(output_dir_pose + str(('%04d'% i)) + '_pose.png', dpi=200, bbox_inches = 'tight')
         # plt.savefig(output_dir_pose + str(('%04d'% i)) + '_pose.pdf', dpi=200, bbox_inches = 'tight')
+        plt.clf()
+        plt.close(ｆig)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
