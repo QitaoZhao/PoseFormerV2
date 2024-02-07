@@ -10,7 +10,6 @@ import torch.nn as nn
 import glob
 from tqdm import tqdm
 import copy
-from IPython import embed
 
 sys.path.append(os.getcwd())
 from common.model_poseformer import PoseTransformerV2 as Model
@@ -230,6 +229,8 @@ def get_pose3D(video_path, output_dir):
         output_dir_3D = output_dir +'pose3D/'
         os.makedirs(output_dir_3D, exist_ok=True)
         plt.savefig(output_dir_3D + str(('%04d'% i)) + '_3D.png', dpi=200, format='png', bbox_inches = 'tight')
+        plt.clf()
+        plt.close(fig)
         
     print('Generating 3D pose successful!')
 
@@ -264,14 +265,11 @@ def get_pose3D(video_path, output_dir):
         ## save
         output_dir_pose = output_dir +'pose/'
         os.makedirs(output_dir_pose, exist_ok=True)
-        # plt.axis('off')
-        # plt.gcf().set_size_inches(512 / 100, 512 / 100)
-        # plt.gca().xaxis.set_major_locator(plt.NullLocator())
-        # plt.gca().yaxis.set_major_locator(plt.NullLocator())
         plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
         plt.margins(0, 0)
         plt.savefig(output_dir_pose + str(('%04d'% i)) + '_pose.png', dpi=200, bbox_inches = 'tight')
-        # plt.savefig(output_dir_pose + str(('%04d'% i)) + '_pose.pdf', dpi=200, bbox_inches = 'tight')
+        plt.clf()
+        plt.close(fig)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

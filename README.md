@@ -9,6 +9,8 @@ This repo is the official implementation for **PoseFormerV2: Exploring Frequency
 
 ### News
 
+[2024.02.06] The environment requirements are updated. Also, check our NeurIPS 2023 paper [ContextAware-PoseFormer](https://github.com/QitaoZhao/ContextAware-PoseFormer) (It outperforms sequence-based models with a single video frame as input)!
+
 [2023.06.16] Codes for in-the-wild video demos are released!
 
 [2023.05.31] We have a narrated video introduction. Please check [here](https://www.youtube.com/watch?v=2xVNrGpGldM).
@@ -48,13 +50,18 @@ If you find PoseFormerV2 useful in your research, please consider citing:
 
 ## Environment
 
-The code is developed and tested under the following environment.
+The code is developed and tested under the following environment:
 
-- Python 3.8
-- PyTorch 1.11.0
-- CUDA 11.3
+- Python 3.9
+- PyTorch 1.13.0
+- CUDA 11.7
 
-```pip install -r requirements.txt```
+```
+conda create -n poseformerv2 python=3.9
+conda activate poseformerv2
+pip install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu117
+pip install -r requirements.txt
+```
 
 ## Usage
 
@@ -96,7 +103,7 @@ We provide pre-trained models with different inputs:
 You can evaluate PoseFormerV2 with prepared checkpoints as:
 
 ```bash
-python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-kept 3 -c checkpoint/NAMED_PATH --evaluate NAME_ckpt.bin
+python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-kept 3 -c checkpoint/ --evaluate NAME_ckpt.bin
 ```
 
 ### Video Demo
@@ -106,9 +113,9 @@ python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-
 
 Our codes for in-the-wild video demos are adopted from [MHFormer](https://github.com/Vegetebird/MHFormer).
 
-First, you need to download the pretrained weights for YOLOv3 ([here](https://drive.google.com/file/d/1YgA9riqm0xG2j72qhONi5oyiAxc98Y1N/view?usp=sharing)), HRNet ([here](https://drive.google.com/file/d/1YLShFgDJt2Cs9goDw9BmR-UzFVgX3lc8/view?usp=sharing)) and put them in the './demo/lib/checkpoint' directory. Then, put your in-the-wild videos in the './demo/video' directory. 
+First, you need to download the pretrained weights for YOLOv3 ([here](https://drive.google.com/file/d/1YgA9riqm0xG2j72qhONi5oyiAxc98Y1N/view?usp=sharing)), HRNet ([here](https://drive.google.com/file/d/1YLShFgDJt2Cs9goDw9BmR-UzFVgX3lc8/view?usp=sharing)) and put them in the `./demo/lib/checkpoint` directory. Then, put your in-the-wild videos in the `./demo/video` directory. 
 
-Note: make sure you have also downloaded the weights for PoseFormerV2! (the default path in the code is './checkpoint')
+NOTE: make sure you have also downloaded the weights for PoseFormerV2! (the default path in the code is `./checkpoint`, and the default model variant used is `27_243_45.2.bin`, using 243 frames as input)
 
 Run the command below:
 
