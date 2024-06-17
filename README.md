@@ -9,6 +9,8 @@ This repo is the official implementation for **PoseFormerV2: Exploring Frequency
 
 ### News
 
+[2024.06.16] Sorry for the huge delay. The code and pre-trained model for MPI-INF-3DHP has been released. Please check [here](https://github.com/QitaoZhao/PoseFormerV2?tab=readme-ov-file#mpi-inf-3dhp).
+
 [2024.02.06] The environment requirements are updated. Also, check our NeurIPS 2023 paper [ContextAware-PoseFormer](https://github.com/QitaoZhao/ContextAware-PoseFormer) (It outperforms sequence-based models with a single video frame as input)!
 
 [2023.06.16] Codes for in-the-wild video demos are released!
@@ -63,7 +65,7 @@ pip install torch==1.13.0+cu117 torchvision==0.14.0+cu117 torchaudio==0.13.0 --e
 pip install -r requirements.txt
 ```
 
-## Usage
+## Human3.6M
 
 ### Dataset preparation
 
@@ -106,7 +108,11 @@ You can evaluate PoseFormerV2 with prepared checkpoints as:
 python run_poseformer.py -g 0 -k cpn_ft_h36m_dbb -frame 27 -frame-kept 3 -coeff-kept 3 -c checkpoint/ --evaluate NAME_ckpt.bin
 ```
 
-### Video Demo
+## MPI-INF-3DHP
+
+We followed [P-STMO](https://github.com/paTRICK-swk/P-STMO?tab=readme-ov-file#mpi-inf-3dhp-1) to prepare the data and train our model. Please click [here](https://github.com/QitaoZhao/PoseFormerV2/tree/main/mpi_inf_3dhp) for details.
+
+## Video Demo
 
 | ![skating](images/demo_3.gif) |
 | :---------------------------: |
@@ -125,5 +131,5 @@ python demo/vis.py --video sample_video.mp4
 
 ## Acknowledgment
 
-Our codes are mainly based on [PoseFormer](https://github.com/zczcwh/PoseFormer). We follow [MHFormer](https://github.com/Vegetebird/MHFormer) to prepare our in-the-wild video demos and visualizations. Many thanks to the authors!
+Our codes are mainly based on [PoseFormer](https://github.com/zczcwh/PoseFormer). We follow [P-STMO](https://github.com/paTRICK-swk/P-STMO?tab=readme-ov-file#mpi-inf-3dhp-1) to train on MPI-INF-3DHP and [MHFormer](https://github.com/Vegetebird/MHFormer) to prepare our in-the-wild video demos and visualizations. Many thanks to the authors!
 

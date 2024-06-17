@@ -1,0 +1,12 @@
+tc camera calibration v0.3
+camera	0	cam_8
+	frame	0
+		sensorSize	10	10	# in mm
+		focalLength	7.32506	# in mm
+		pixelAspect	1.00044
+		centerOffset	-0.0322884	0.0929296	# in mm (positive values move right and down)
+		distortionModel	OpenCV
+		distortion		0.0 0.0 0.0 0.0 0.0
+			origin	3427.28	1387.86	309.42
+			up	-0.208215	0.976233	0.06014
+			right	0.000575281	0.0616098	-0.9981
